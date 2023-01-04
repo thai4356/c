@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <title>AngularJS</title>
+  <script src="js/angularjs.js"></script>
+  <script src="js/app.js"></script>
+  <link rel="stylesheet" href="css.css">
+</head>
+<body >
+
+<div ng-controller="secondController">
+  <table id="car" >
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Date of production</th>
+      <th>Expired date</th>
+    </tr>
+    <tr ng-repeat="product in products | limitTo:limitRow:offsetRow | orderBy:'price'">
+      <td>{{product.name | uppercase}}</td>
+      <td>{{product.price | currency }}</td>
+      <td>{{product.DOP | date:'dd/MM/yyyy'}}</td>
+      <td>{{product.ED | date:'dd/MM/yyyy'}}</td>
+    </tr>
+  </table>
+  <br/>
+  <button ng-click="prevPage()">Previous</button>
+  <button ng-click="nextPage()">Next</button>
+</div>
+<br>
+
+<h1>Json</h1>
+<div class="container">
+
+  <div ng-controller="thirdController">
+    <table id="id" >
+      <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Date of production</th>
+        <th>Expired date</th>
+      </tr>
+      <tr ng-repeat="product in products | limitTo:limitRow:offsetRow | orderBy:'price'">
+        <td>{{product.name | uppercase}}</td>
+        <td>{{product.price | currency }}</td>
+        <td>{{product.DOP | date:'dd/MM/yyyy'}}</td>
+        <td>{{product.ED | date:'dd/MM/yyyy'}}</td>
+      </tr>
+    </table>
+    <br/>
+    <button ng-click="prevPage()">Previous</button>
+    <button ng-click="nextPage()">Next</button>
+  </div>
+
+</body>
+</html>
